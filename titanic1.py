@@ -6,7 +6,7 @@ import random as rnd
 
 #These are the viz module
 import seaborn as sns 
-import matplotlib.pyplot as pyplot
+import matplotlib.pyplot as plt 
 
 #I will run this from this file and then add separete files for each model
 from sklearn.linear_model import LogisticRegression
@@ -38,3 +38,23 @@ print(train_df.describe())
 
 
 print(train_df.describe(include=['O']))
+
+
+print(train_df[['Pclass', 'Survived']].groupby(['Pclass'], as_index=False).mean().sort_values(by='Survived', ascending=False))
+
+print(train_df[['Sex', 'Survived']].groupby(['Sex'], as_index=False).mean().sort_values(by='Survived', ascending=False))
+
+print(train_df[['SibSp', 'Survived']].groupby(['SibSp'], as_index=False).mean().sort_values(by='Survived', ascending=False))
+
+print(train_df[['Parch', 'Survived']].groupby(['Parch'], as_index=False).mean().sort_values(by='Survived', ascending=False))
+
+g = sns.FacetGrid(train_df, col='Survived')
+g.map(plt.hist, 'Age', bins=20)
+
+plt.show() 
+
+grid = sns.FacetGrid(train_df, col='Survived', row='Pclass', size=2.2, aspect=1.6)
+grid.map(plt.hist, 'Age', alpha=.5, bins=20)
+grid.add_legend();
+plt.show()
+

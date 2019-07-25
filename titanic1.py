@@ -22,12 +22,15 @@ from sklearn.tree import DecisionTreeClassifier
 train_df = pd.read_csv(r"C:\Users\Teamwork\Desktop\titanic\train.csv")
 test_df = pd.read_csv(r"C:\Users\Teamwork\Desktop\titanic\test.csv")
 
+#Combine the two dataframes
 combine = [train_df, test_df]
 
+#print the columns of the trainig dataset
 print(train_df.columns.values)
 
+#print the head
 print(train_df.head)
-
+#print the tail
 print(train_df.tail)
 train_df.info()
 test_df.info()

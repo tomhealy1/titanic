@@ -36,6 +36,8 @@ train_df.info()
 test_df.info()
 
 print('_'*40)
+    
+        
 
 print(train_df.describe()) 
 
